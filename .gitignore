@@ -1,0 +1,14 @@
+# Ignorar ambientes virtuais do Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar o diretório pesado de grafos gerados na questao3
+questao3/grafos/
+
+# Ignorar o executável compilado do C++
+questao3/generator
+
+# Opcional: Se você não quiser enviar as imagens grandes geradas para o Git
+# *.png
