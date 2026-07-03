@@ -1,6 +1,6 @@
 #ifndef PRIM_H
 #define PRIM_H
-
+#include "mstResult.h"
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -9,7 +9,9 @@
 
 using namespace std;
 
-void runPrim(const vector<vector<int>>& graph, int numVertices) {
+
+
+MSTResult runPrim(const vector<vector<int>>& graph, int numVertices) {
     // Inicia a contagem de tempo
     auto start = chrono::high_resolution_clock::now();
 
@@ -75,6 +77,19 @@ void runPrim(const vector<vector<int>>& graph, int numVertices) {
     
     // Imprime o tempo de execução
     cout << "Execution time: " << duration.count() << " ms\n";
+    MSTResult result;
+
+result.tree = mstMatrix;
+result.executionTimeMs = duration.count();
+
+int total = 0;
+for (int i = 1; i < numVertices; i++)
+    if (parent[i] != -1)
+        total += graph[i][parent[i]];
+
+result.totalWeight = total;
+
+return result;
 }
 
 #endif

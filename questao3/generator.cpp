@@ -1,6 +1,7 @@
 #include "generateGraph.h" 
-#include "kruskal.h" // ADICIONADO: Inclusão do header do Kruskal
-#include "prim.h"    // ADICIONADO: Inclusão do header do Prim
+#include "kruskal.h"        // ADICIONADO: Inclusão do header do Kruskal
+#include "prim.h"           // ADICIONADO: Inclusão do header do Prim
+#include "saveExperiment.h" // ADICIONADO: Inclusão do header para salvar JSON
 #include <cstdlib>
 #include <iostream>
 #include <vector>    // ADICIONADO: Para tratar o tipo vector
@@ -18,14 +19,24 @@ int main(int argc, char* argv[]) {
     bool isDense = atoi(argv[2]) != 0;
     unsigned int seed = atoi(argv[3]);
 
-    // ALTERADO: Agora capturamos o retorno da função em uma variável chamada 'graph'
     vector<vector<int>> graph = generateGraph(vertices, isDense, seed);
 
-    // ADICIONADO: Se o grafo foi gerado com sucesso, executa os algoritmos de árvore geradora mínima
     if (!graph.empty()) {
-        runKruskal(graph, vertices);
-        runPrim(graph, vertices);
+
+        MSTResult kruskal = runKruskal(graph, vertices);
+        MSTResult prim     = runPrim(graph, vertices);
+
+        saveExperiment(
+            graph,
+            kruskal,
+            prim,
+            vertices,
+            isDense,
+            seed
+        );
     }
+
+
 
     return 0;
 }

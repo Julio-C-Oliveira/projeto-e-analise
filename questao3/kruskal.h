@@ -1,6 +1,6 @@
 #ifndef KRUSKAL_H
 #define KRUSKAL_H
-
+#include "mstResult.h"
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -8,6 +8,8 @@
 #include <chrono>
 
 using namespace std;
+
+
 
 // Estrutura para representar as arestas
 struct Edge {
@@ -42,7 +44,7 @@ struct DSU {
     }
 };
 
-void runKruskal(const vector<vector<int>>& graph, int numVertices) {
+MSTResult runKruskal(const vector<vector<int>>& graph, int numVertices) {
     // Inicia a contagem de tempo
     auto start = chrono::high_resolution_clock::now();
 
@@ -95,6 +97,20 @@ void runKruskal(const vector<vector<int>>& graph, int numVertices) {
     
     // Imprime o tempo de execução
     cout << "Execution time: " << duration.count() << " ms\n";
+
+    MSTResult result;
+
+result.tree = mstMatrix;
+result.executionTimeMs = duration.count();
+
+int total = 0;
+for (int i = 0; i < numVertices; i++)
+    for (int j = i + 1; j < numVertices; j++)
+        total += mstMatrix[i][j];
+
+result.totalWeight = total;
+
+return result;
 }
 
 #endif

@@ -8,16 +8,29 @@
 
 using namespace std;
 
+
+inline string getVertexName(int index) {
+    int letter = index % 26;
+    int cycle = index / 26;
+
+    string name;
+    name += char('A' + letter);
+
+    if (cycle > 0)
+        name += to_string(cycle + 1);
+
+    return name;
+}
+
+
+
 // ALTERADO: O tipo de retorno mudou de void para vector<vector<int>>
 vector<vector<int>> generateGraph(int numVertices, bool isDense, unsigned int seed = 42) {
     if (numVertices <= 0) {
         cout << "Error: Number of vertices must be greater than zero." << endl;
         return {}; // Retorna vetor vazio em caso de erro
     }
-    if (numVertices > 26) {
-        cout << "Error: The number of vertices cannot be greater than 26 (alphabet limit)." << endl;
-        return {}; // Retorna vetor vazio em caso de erro
-    }
+
 
     const int maxWeight = 30;           
     
@@ -57,16 +70,16 @@ vector<vector<int>> generateGraph(int numVertices, bool isDense, unsigned int se
     // --- Graph Display Output ---
     cout << "\n--- Generated Connected Graph (" << (isDense ? "Dense" : "Sparse") << ") [Seed: " << seed << "] ---" << endl;
     
-    cout << "   ";
-    for (int i = 0; i < numVertices; ++i) {
-        cout << setw(4) << (char)('A' + i);
-    }
-    cout << "\n" << string(3 + numVertices * 4, '-') << "\n";
+    cout << "    ";
+for (int i = 0; i < numVertices; ++i) {
+    cout << setw(5) << getVertexName(i);
+}
+    cout << "\n" << string(6 + numVertices * 5, '-') << "\n";
 
     for (int i = 0; i < numVertices; ++i) {
-        cout << (char)('A' + i) << " |";
+        cout << setw(3) << getVertexName(i) << " |";
         for (int j = 0; j < numVertices; ++j) {
-            cout << setw(4) << matrix[i][j];
+            cout << setw(5) << matrix[i][j];
         }
         cout << endl;
     }
