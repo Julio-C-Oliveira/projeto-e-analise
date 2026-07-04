@@ -1,0 +1,68 @@
+[
+  {
+    "num_vertices": 5,
+    "matrix": [
+      [0,7,29,0,0],
+      [7,0,1,24,0],
+      [29,1,0,12,0],
+      [0,24,12,0,22],
+      [0,0,0,22,0]
+    ],
+    "planar": {
+      "is_planar": true,
+      "reason": "Passou nos testes de Euler e Kuratowski"
+    },
+    "articulation": {
+      "has_points": true,
+      "points": [3]
+    },
+    "euler": {
+      "type": 0,
+      "path": []
+    }
+  },
+  {
+    "num_vertices": 5,
+    "matrix": [
+      [0,28,19,0,0],
+      [28,0,25,0,30],
+      [19,25,0,7,0],
+      [0,0,7,0,3],
+      [0,30,0,3,0]
+    ],
+    "planar": {
+      "is_planar": true,
+      "reason": "Passou nos testes de Euler e Kuratowski"
+    },
+    "articulation": {
+      "has_points": false,
+      "points": []
+    },
+    "euler": {
+      "type": 1,
+      "path": [2, 0, 1, 4, 3, 2, 1]
+    }
+  },
+  {
+    "num_vertices": 5,
+    "matrix": [
+      [0,28,0,0,18],
+      [28,0,30,0,0],
+      [0,30,0,10,11],
+      [0,0,10,0,5],
+      [18,0,11,5,0]
+    ],
+    "planar": {
+      "is_planar": true,
+      "reason": "Passou nos testes de Euler e Kuratowski"
+    },
+    "articulation": {
+      "has_points": false,
+      "points": []
+    },
+    "euler": {
+      "type": 1,
+      "path": [4, 2, 3, 4, 0, 1, 2]
+    }
+  }
+]

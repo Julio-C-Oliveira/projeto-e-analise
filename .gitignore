@@ -12,3 +12,8 @@ questao3/generator
 
 # Opcional: Se você não quiser enviar as imagens grandes geradas para o Git
 # *.png
+
+# Extra da questão 05:
+*.o
+graph
+.vscode/

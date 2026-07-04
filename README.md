@@ -31,10 +31,21 @@ Implementação e análise de grafos direcionados aleatórios para verificação
   - Scripts de grafos e interface em `Python` (`graph.py`, `gui.py`).
   - Análise assintótica e teórica no [relatorio_tecnico_q4.md](questao4/relatorio_tecnico_q4.md).
 
+### [Questão 5: Propriedades Estruturais de Grafos](questao5/)
+- **Tópicos Abordados:**
+  - Planaridade: Verificação baseada no Teorema de Kuratowski e Corolários de Euler.
+  - Pontos de Articulação: Identificação de vértices críticos utilizando o Algoritmo de Tarjan.
+  - Caminhos e Ciclos Eulerianos: Implementação do Algoritmo de Fleury com aplicação da "Regra da Ponte" para travessia completa de arestas.
+
+- **Arquivos Principais:**
+  - Implementação em C estruturado (planar.c, tarjan_for_articulation.c, fleury.c).
+  - Documentação e análise teórica no notebook question05.ipynb.
+
 ## 🚀 Tecnologias e Ferramentas
 
 - **Python:** Utilizado nos Jupyter Notebooks para análise de dados, modelagem, programação linear e visualização, além da implementação orientada a objetos da Questão 4.
 - **C++:** Utilizado na Questão 3 para garantir a máxima performance e controle de memória na análise empírica dos algoritmos Kruskal e Prim.
+- **C** Utilizado para reaproveitar o código escrito em outra matéria e otimizar a performance, tendo acesso direto as estruturas.
 - **Markdown / Jupyter:** Utilizados para a documentação e entrega dos relatórios técnicos.
 
 ## 📖 Como Navegar e Executar
@@ -43,3 +54,4 @@ Cada questão é auto-contida em sua respectiva pasta.
 - Para as **Questões 1, 2 e 3**, você pode abrir os arquivos `.ipynb` em um ambiente que suporte Jupyter Notebook (como VS Code, JupyterLab ou Google Colab) para visualizar a execução teórica e os gráficos gerados.
 - Para a **Questão 3**, os relatórios fornecem o detalhamento do experimento.
 - Para a **Questão 4**, os requisitos estão no arquivo `pyproject.toml`. É possível ler as conclusões no `relatorio_tecnico_q4.md`.
+- Para a **Questão 5**, é só rodar o question05.ipynb
